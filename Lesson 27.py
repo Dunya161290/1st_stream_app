@@ -6,7 +6,7 @@ import plotly.express as px
 st.set_page_config(page_title="Analytics Dashboard", layout="wide")
 
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Descriptives", "Sales", "Profit"])
+page = st.sidebar.radio("Go to", ["Descriptives", "Sales", "Profit","Downloads"])
 
 
 descriptives_data = pd.DataFrame({
@@ -68,3 +68,18 @@ elif page == "Profit":
         color_discrete_sequence=['green']
     )
     st.plotly_chart(fig)
+
+    # Downloads Page
+
+elif page == "Downloads":
+
+    data = pd.read_csv(r"C:\Users\dbabayeva\Desktop\My files\Python\netflix1.csv")
+    csv_file = data.to_csv(index=False).encode('utf-8')
+
+    st.download_button(
+    label="CSV yüklə",
+    data = csv_file,
+    file_name="melumatlar.csv",
+    mime='text/csv'
+)
+    
