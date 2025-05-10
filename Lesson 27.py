@@ -73,7 +73,7 @@ elif page == "Profit":
 
 elif page == "Downloads":
 
-    data = pd.read_csv(r"C:\Users\dbabayeva\Desktop\My files\Python\netflix1.csv")
+    data = pd.read_csv("netflix1.csv")
     csv_file = data.to_csv(index=False).encode('utf-8')
 
     st.download_button(
